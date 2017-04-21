@@ -1,0 +1,1075 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/cinema6/smoketail"
+
+    >smoketail (v0.1.0)</a>
+</h1>
+<h4>Library and utility for tailing AWS CloudWatch Logs.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.smoketail">module smoketail</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogEventToMessage">
+            function <span class="apidocSignatureSpan">smoketail.</span>CWLogEventToMessage
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilter">
+            function <span class="apidocSignatureSpan">smoketail.</span>CWLogFilter
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilterEventStream">
+            function <span class="apidocSignatureSpan">smoketail.</span>CWLogFilterEventStream
+            <span class="apidocSignatureSpan">(filterParams, cwOpts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">smoketail.</span>CWLogEventToMessage.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">smoketail.</span>CWLogFilter.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">smoketail.</span>CWLogFilterEventStream.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">smoketail.</span>cwlog</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.smoketail.CWLogEventToMessage">module smoketail.CWLogEventToMessage</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogEventToMessage.CWLogEventToMessage">
+            function <span class="apidocSignatureSpan">smoketail.</span>CWLogEventToMessage
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogEventToMessage.super_">
+            function <span class="apidocSignatureSpan">smoketail.CWLogEventToMessage.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.smoketail.CWLogEventToMessage.prototype">module smoketail.CWLogEventToMessage.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogEventToMessage.prototype._transform">
+            function <span class="apidocSignatureSpan">smoketail.CWLogEventToMessage.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, done)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.smoketail.CWLogFilter">module smoketail.CWLogFilter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilter.CWLogFilter">
+            function <span class="apidocSignatureSpan">smoketail.</span>CWLogFilter
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.smoketail.CWLogFilter.prototype">module smoketail.CWLogFilter.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilter.prototype.eof">
+            function <span class="apidocSignatureSpan">smoketail.CWLogFilter.prototype.</span>eof
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilter.prototype.next">
+            function <span class="apidocSignatureSpan">smoketail.CWLogFilter.prototype.</span>next
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilter.prototype.open">
+            function <span class="apidocSignatureSpan">smoketail.CWLogFilter.prototype.</span>open
+            <span class="apidocSignatureSpan">(params)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.smoketail.CWLogFilterEventStream">module smoketail.CWLogFilterEventStream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilterEventStream.CWLogFilterEventStream">
+            function <span class="apidocSignatureSpan">smoketail.</span>CWLogFilterEventStream
+            <span class="apidocSignatureSpan">(filterParams, cwOpts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilterEventStream.super_">
+            function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.smoketail.CWLogFilterEventStream.prototype">module smoketail.CWLogFilterEventStream.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilterEventStream.prototype._read">
+            function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.prototype.</span>_read
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilterEventStream.prototype._readFilter">
+            function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.prototype.</span>_readFilter
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilterEventStream.prototype._startFollow">
+            function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.prototype.</span>_startFollow
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilterEventStream.prototype._stopFollow">
+            function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.prototype.</span>_stopFollow
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.CWLogFilterEventStream.prototype.close">
+            function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.prototype.</span>close
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.smoketail.cwlog">module smoketail.cwlog</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.cwlog.CWLogEventToMessage">
+            function <span class="apidocSignatureSpan">smoketail.cwlog.</span>CWLogEventToMessage
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.cwlog.CWLogFilter">
+            function <span class="apidocSignatureSpan">smoketail.cwlog.</span>CWLogFilter
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.smoketail.cwlog.CWLogFilterEventStream">
+            function <span class="apidocSignatureSpan">smoketail.cwlog.</span>CWLogFilterEventStream
+            <span class="apidocSignatureSpan">(filterParams, cwOpts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">smoketail.cwlog.</span>logEventToMessage</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">smoketail.cwlog.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.smoketail" id="apidoc.module.smoketail">module smoketail</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogEventToMessage" id="apidoc.element.smoketail.CWLogEventToMessage">
+        function <span class="apidocSignatureSpan">smoketail.</span>CWLogEventToMessage
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CWLogEventToMessage(opts){
+    if (opts &#x26;&#x26; opts.crunchTabs) {
+       this._crunchTabs = true;
+    }
+    Transform.call(this, { objectMode : true });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilter" id="apidoc.element.smoketail.CWLogFilter">
+        function <span class="apidocSignatureSpan">smoketail.</span>CWLogFilter
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CWLogFilter(opts){
+    opts = opts || { };
+    opts.apiVersion  = &#x27;2014-03-28&#x27;;
+    opts.region      = opts.region || &#x27;us-east-1&#x27;;
+
+    this._cwLogs    = new aws.CloudWatchLogs(opts);
+    this._params    = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilterEventStream" id="apidoc.element.smoketail.CWLogFilterEventStream">
+        function <span class="apidocSignatureSpan">smoketail.</span>CWLogFilterEventStream
+        <span class="apidocSignatureSpan">(filterParams, cwOpts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CWLogFilterEventStream(filterParams, cwOpts) {
+    Readable.call(this, { highWaterMark: 102400, objectMode : true });
+    this._cwOpts             = cwOpts;
+    this._filterParams       = lib.copyFilterParams(filterParams);
+    this._follow             = !!filterParams.follow;
+    this._followInterval     = filterParams.followInterval || 1000;
+    this._reading            = false;
+    this._ival               = null;
+    this._closed             = false;
+    var self = this;
+
+    this.on(&#x27;pause&#x27;,function(){
+        if (self._closed) {
+            self.emit(&#x27;error&#x27;,new Error(&#x27;Unable to pause a closed stream.&#x27;));
+        } else {
+            self._stopFollow();
+        }
+    });
+
+    this.on(&#x27;resume&#x27;,function(){
+        if (self._closed) {
+            self.emit(&#x27;error&#x27;,new Error(&#x27;Unable to resume a closed stream.&#x27;));
+        } else {
+            self._startFollow();
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (filterOpts.endTime) {
+        throw new Error(&#x27;Cannot use --follow with an ending time range.&#x27;);
+    }
+    filterOpts.follow = true;
+    filterOpts.interLeaved = true;
+}
+
+filter = new cwl.<span class="apidocCodeKeywordSpan">CWLogFilterEventStream</span>(filterOpts,awsOpts);
+
+filter.on(&#x27;error&#x27;, function(err){
+    process.stderr.write(err.message + &#x27;\n&#x27;);
+    process.exit(1);
+});
+
+filter.pipe(cwl.logEventToMessage).pipe(process.stdout);
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.smoketail.CWLogEventToMessage" id="apidoc.module.smoketail.CWLogEventToMessage">module smoketail.CWLogEventToMessage</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogEventToMessage.CWLogEventToMessage" id="apidoc.element.smoketail.CWLogEventToMessage.CWLogEventToMessage">
+        function <span class="apidocSignatureSpan">smoketail.</span>CWLogEventToMessage
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CWLogEventToMessage(opts){
+    if (opts &#x26;&#x26; opts.crunchTabs) {
+       this._crunchTabs = true;
+    }
+    Transform.call(this, { objectMode : true });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogEventToMessage.super_" id="apidoc.element.smoketail.CWLogEventToMessage.super_">
+        function <span class="apidocSignatureSpan">smoketail.CWLogEventToMessage.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.smoketail.CWLogEventToMessage.prototype" id="apidoc.module.smoketail.CWLogEventToMessage.prototype">module smoketail.CWLogEventToMessage.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogEventToMessage.prototype._transform" id="apidoc.element.smoketail.CWLogEventToMessage.prototype._transform">
+        function <span class="apidocSignatureSpan">smoketail.CWLogEventToMessage.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_transform = function (chunk, encoding, done) {
+    if ((chunk.message === undefined) || (chunk.timestamp === undefined)){
+        return done();
+    }
+
+    var message = chunk.message;
+    if (this._crunchTabs) {
+        message = chunk.message.replace(/\t/,&#x27; &#x27;);
+    }
+
+    if (message.charAt(message.length - 1) !== &#x27;\n&#x27;) {
+        message += &#x27;\n&#x27;;
+    }
+
+    if (message.match(/^\d\d\d\d-\d\d-\d\d\D/)){
+        this.push(message);
+    } else {
+        this.push((new Date(chunk.timestamp)).toISOString() + &#x27; &#x27; + message);
+    }
+    done();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.smoketail.CWLogFilter" id="apidoc.module.smoketail.CWLogFilter">module smoketail.CWLogFilter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilter.CWLogFilter" id="apidoc.element.smoketail.CWLogFilter.CWLogFilter">
+        function <span class="apidocSignatureSpan">smoketail.</span>CWLogFilter
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CWLogFilter(opts){
+    opts = opts || { };
+    opts.apiVersion  = &#x27;2014-03-28&#x27;;
+    opts.region      = opts.region || &#x27;us-east-1&#x27;;
+
+    this._cwLogs    = new aws.CloudWatchLogs(opts);
+    this._params    = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.smoketail.CWLogFilter.prototype" id="apidoc.module.smoketail.CWLogFilter.prototype">module smoketail.CWLogFilter.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilter.prototype.eof" id="apidoc.element.smoketail.CWLogFilter.prototype.eof">
+        function <span class="apidocSignatureSpan">smoketail.CWLogFilter.prototype.</span>eof
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">eof = function (){
+    return ((!this._params) || (!this._params.nextToken));
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (!results || results.event) {
+        return filter;
+    }
+    results.events.forEach(function(event){
+        console.log(event.message);
+    });
+
+    if (filter.<span class="apidocCodeKeywordSpan">eof</span>()){
+        return filter;
+    }
+    return filter.next().then(iterateFilter);
+}
+
+// open takes the same parameters as a call to filterLogEvents
+filter.open({ ... })
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilter.prototype.next" id="apidoc.element.smoketail.CWLogFilter.prototype.next">
+        function <span class="apidocSignatureSpan">smoketail.CWLogFilter.prototype.</span>next
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">next = function (){
+    var self = this;
+
+    if ((!this._params) || (!this._params.nextToken)) {
+        return q();
+    }
+
+    return q.ninvoke(this._cwLogs,&#x27;filterLogEvents&#x27;,this._params)
+        .then(function(res){
+            if (res.nextToken) {
+                self._params.nextToken = res.nextToken;
+            } else {
+                delete self._params.nextToken;
+            }
+            return res;
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+results.events.forEach(function(event){
+    console.log(event.message);
+});
+
+if (filter.eof()){
+    return filter;
+}
+return filter.<span class="apidocCodeKeywordSpan">next</span>().then(iterateFilter);
+}
+
+// open takes the same parameters as a call to filterLogEvents
+filter.open({ ... })
+.then(iterate)
+.catch(function(err){
+console.log(err);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilter.prototype.open" id="apidoc.element.smoketail.CWLogFilter.prototype.open">
+        function <span class="apidocSignatureSpan">smoketail.CWLogFilter.prototype.</span>open
+        <span class="apidocSignatureSpan">(params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">open = function (params) {
+    var self = this, myParams = null;
+    self._params = null;
+    myParams = lib.copyFilterParams(params);
+
+    return q.ninvoke(this._cwLogs,&#x27;filterLogEvents&#x27;,myParams)
+        .then(function(res){
+            self._params = myParams;
+            self._params.nextToken = res.nextToken;
+            return res;
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+A promise based cursor-like object wrapping calls to the AWS filterLogEvents api.  The CWLogFilterStream uses the CWLogFilter internally
+ to implement its calls to the AWS api.
+```
+var CWLogFilter = require(&#x27;smoketail&#x27;).CWLogFilter;
+
+var filter = new CWLogFilter( /* { region : &#x27;us-east-1&#x27; } */);
+
+// open takes the same parameters as a call to filterLogEvents
+filter.<span class="apidocCodeKeywordSpan">open</span>({
+logGroupName : &#x27;myGroup&#x27;,
+logStreamNames: [&#x27;stream1&#x27;,&#x27;stream2&#x27;],
+startTime: 1451606400000
+})
+.then(results){
+results.events.forEach(event){
+    console.log(event.message);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.smoketail.CWLogFilterEventStream" id="apidoc.module.smoketail.CWLogFilterEventStream">module smoketail.CWLogFilterEventStream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilterEventStream.CWLogFilterEventStream" id="apidoc.element.smoketail.CWLogFilterEventStream.CWLogFilterEventStream">
+        function <span class="apidocSignatureSpan">smoketail.</span>CWLogFilterEventStream
+        <span class="apidocSignatureSpan">(filterParams, cwOpts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CWLogFilterEventStream(filterParams, cwOpts) {
+    Readable.call(this, { highWaterMark: 102400, objectMode : true });
+    this._cwOpts             = cwOpts;
+    this._filterParams       = lib.copyFilterParams(filterParams);
+    this._follow             = !!filterParams.follow;
+    this._followInterval     = filterParams.followInterval || 1000;
+    this._reading            = false;
+    this._ival               = null;
+    this._closed             = false;
+    var self = this;
+
+    this.on(&#x27;pause&#x27;,function(){
+        if (self._closed) {
+            self.emit(&#x27;error&#x27;,new Error(&#x27;Unable to pause a closed stream.&#x27;));
+        } else {
+            self._stopFollow();
+        }
+    });
+
+    this.on(&#x27;resume&#x27;,function(){
+        if (self._closed) {
+            self.emit(&#x27;error&#x27;,new Error(&#x27;Unable to resume a closed stream.&#x27;));
+        } else {
+            self._startFollow();
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (filterOpts.endTime) {
+        throw new Error(&#x27;Cannot use --follow with an ending time range.&#x27;);
+    }
+    filterOpts.follow = true;
+    filterOpts.interLeaved = true;
+}
+
+filter = new cwl.<span class="apidocCodeKeywordSpan">CWLogFilterEventStream</span>(filterOpts,awsOpts);
+
+filter.on(&#x27;error&#x27;, function(err){
+    process.stderr.write(err.message + &#x27;\n&#x27;);
+    process.exit(1);
+});
+
+filter.pipe(cwl.logEventToMessage).pipe(process.stdout);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilterEventStream.super_" id="apidoc.element.smoketail.CWLogFilterEventStream.super_">
+        function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Readable(options) {
+  if (!(this instanceof Readable))
+    return new Readable(options);
+
+  this._readableState = new ReadableState(options, this);
+
+  // legacy
+  this.readable = true;
+
+  if (options &#x26;&#x26; typeof options.read === &#x27;function&#x27;)
+    this._read = options.read;
+
+  Stream.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.smoketail.CWLogFilterEventStream.prototype" id="apidoc.module.smoketail.CWLogFilterEventStream.prototype">module smoketail.CWLogFilterEventStream.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilterEventStream.prototype._read" id="apidoc.element.smoketail.CWLogFilterEventStream.prototype._read">
+        function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.prototype.</span>_read
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_read = function (){
+    if (this._closed) {
+        this.emit(&#x27;error&#x27;,new Error(&#x27;Unable to read a closed stream.&#x27;));
+    } else {
+        this._startFollow();
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilterEventStream.prototype._readFilter" id="apidoc.element.smoketail.CWLogFilterEventStream.prototype._readFilter">
+        function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.prototype.</span>_readFilter
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_readFilter = function () {
+    if (this._reading) {
+        return q();
+    }
+
+    var self = this, filter = lib.createCWLogFilter(this._cwOpts), lastTimestamp = 0;
+
+    function iterateFilter(res){
+        var idx, eventCount, data;
+        if (!res || !res.events) {
+            return filter;
+        }
+        eventCount = res.events.length;
+        for (idx = 0; idx &#x3c; eventCount; idx++) {
+            data = res.events[idx];
+            lastTimestamp = Math.max(lastTimestamp,data.timestamp);
+            if (!self.push(data)){
+                return filter;
+            }
+        }
+
+        if (filter.eof()){
+            return filter;
+        }
+
+        return filter.next().then(iterateFilter);
+    }
+
+    this._reading = true;
+    return filter.open(this._filterParams)
+    .then(iterateFilter)
+    .then(function(){
+        if (!self._follow) {
+            self.close();
+        } else {
+            if (lastTimestamp &#x3e; (self._filterParams.startTime || 0 )) {
+                self._filterParams.startTime = lastTimestamp + 1;
+            }
+        }
+
+        self._reading = false;
+    })
+    .catch(function(err){
+        self.emit(&#x27;error&#x27;,err);
+        self._reading = false;
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+};
+
+CWLogFilterEventStream.prototype._startFollow = function(){
+var self = this;
+if ((self._follow) &#x26;&#x26; (!self._ival) &#x26;&#x26; (!self._closed)) {
+    self._ival = setInterval(function(){
+        self.<span class="apidocCodeKeywordSpan">_readFilter</span>();
+    },self._followInterval);
+}
+this._readFilter();
+};
+
+CWLogFilterEventStream.prototype._stopFollow = function(){
+if (this._ival) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilterEventStream.prototype._startFollow" id="apidoc.element.smoketail.CWLogFilterEventStream.prototype._startFollow">
+        function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.prototype.</span>_startFollow
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_startFollow = function (){
+    var self = this;
+    if ((self._follow) &#x26;&#x26; (!self._ival) &#x26;&#x26; (!self._closed)) {
+        self._ival = setInterval(function(){
+            self._readFilter();
+        },self._followInterval);
+    }
+    this._readFilter();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        }
+    });
+
+    this.on(&#x27;resume&#x27;,function(){
+        if (self._closed) {
+            self.emit(&#x27;error&#x27;,new Error(&#x27;Unable to resume a closed stream.&#x27;));
+        } else {
+            self.<span class="apidocCodeKeywordSpan">_startFollow</span>();
+        }
+    });
+}
+
+util.inherits(CWLogFilterEventStream, Readable);
+
+/**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilterEventStream.prototype._stopFollow" id="apidoc.element.smoketail.CWLogFilterEventStream.prototype._stopFollow">
+        function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.prototype.</span>_stopFollow
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_stopFollow = function (){
+    if (this._ival) {
+        clearInterval(this._ival);
+        this._ival = null;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this._closed             = false;
+var self = this;
+
+this.on(&#x27;pause&#x27;,function(){
+    if (self._closed) {
+        self.emit(&#x27;error&#x27;,new Error(&#x27;Unable to pause a closed stream.&#x27;));
+    } else {
+        self.<span class="apidocCodeKeywordSpan">_stopFollow</span>();
+    }
+});
+
+this.on(&#x27;resume&#x27;,function(){
+    if (self._closed) {
+        self.emit(&#x27;error&#x27;,new Error(&#x27;Unable to resume a closed stream.&#x27;));
+    } else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.CWLogFilterEventStream.prototype.close" id="apidoc.element.smoketail.CWLogFilterEventStream.prototype.close">
+        function <span class="apidocSignatureSpan">smoketail.CWLogFilterEventStream.prototype.</span>close
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function (){
+    this._closed = true;
+    this._stopFollow();
+    this.push(null);
+    this.emit(&#x27;close&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    console.log(
+        &#x27;Timestamp: &#x27;, new Date(eventObject.timestamp),
+        &#x27;Message: &#x27;, eventObject.message
+    );
+});
+
+setTimeout(function(){
+    eventStream.<span class="apidocCodeKeywordSpan">close</span>();  // Close method will close stream, end app if nothing else
+is open
+}, 30000);
+
+```
+
+Because all data presented by the CWLogFilterEventStream is raw objects, it cannot be piped directly to other streams expecting
+data in string or buffers.  To faciliate this, the CWLogEventToMessage transformer is available.  As a convenience, a default instantiation
+ of the transformer object is included in the library (```.logEventToMessage```).
+
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.smoketail.cwlog" id="apidoc.module.smoketail.cwlog">module smoketail.cwlog</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.cwlog.CWLogEventToMessage" id="apidoc.element.smoketail.cwlog.CWLogEventToMessage">
+        function <span class="apidocSignatureSpan">smoketail.cwlog.</span>CWLogEventToMessage
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CWLogEventToMessage(opts){
+    if (opts &#x26;&#x26; opts.crunchTabs) {
+       this._crunchTabs = true;
+    }
+    Transform.call(this, { objectMode : true });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.cwlog.CWLogFilter" id="apidoc.element.smoketail.cwlog.CWLogFilter">
+        function <span class="apidocSignatureSpan">smoketail.cwlog.</span>CWLogFilter
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CWLogFilter(opts){
+    opts = opts || { };
+    opts.apiVersion  = &#x27;2014-03-28&#x27;;
+    opts.region      = opts.region || &#x27;us-east-1&#x27;;
+
+    this._cwLogs    = new aws.CloudWatchLogs(opts);
+    this._params    = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.smoketail.cwlog.CWLogFilterEventStream" id="apidoc.element.smoketail.cwlog.CWLogFilterEventStream">
+        function <span class="apidocSignatureSpan">smoketail.cwlog.</span>CWLogFilterEventStream
+        <span class="apidocSignatureSpan">(filterParams, cwOpts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CWLogFilterEventStream(filterParams, cwOpts) {
+    Readable.call(this, { highWaterMark: 102400, objectMode : true });
+    this._cwOpts             = cwOpts;
+    this._filterParams       = lib.copyFilterParams(filterParams);
+    this._follow             = !!filterParams.follow;
+    this._followInterval     = filterParams.followInterval || 1000;
+    this._reading            = false;
+    this._ival               = null;
+    this._closed             = false;
+    var self = this;
+
+    this.on(&#x27;pause&#x27;,function(){
+        if (self._closed) {
+            self.emit(&#x27;error&#x27;,new Error(&#x27;Unable to pause a closed stream.&#x27;));
+        } else {
+            self._stopFollow();
+        }
+    });
+
+    this.on(&#x27;resume&#x27;,function(){
+        if (self._closed) {
+            self.emit(&#x27;error&#x27;,new Error(&#x27;Unable to resume a closed stream.&#x27;));
+        } else {
+            self._startFollow();
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (filterOpts.endTime) {
+        throw new Error(&#x27;Cannot use --follow with an ending time range.&#x27;);
+    }
+    filterOpts.follow = true;
+    filterOpts.interLeaved = true;
+}
+
+filter = new cwl.<span class="apidocCodeKeywordSpan">CWLogFilterEventStream</span>(filterOpts,awsOpts);
+
+filter.on(&#x27;error&#x27;, function(err){
+    process.stderr.write(err.message + &#x27;\n&#x27;);
+    process.exit(1);
+});
+
+filter.pipe(cwl.logEventToMessage).pipe(process.stdout);
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
